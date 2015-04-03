@@ -1,0 +1,12 @@
+<%= @manufacturer.name %>:
+
+<ul>
+<% @manufacturer.cars.each do |car| %>
+  <li>model: <%= car.model %>
+  color: <%= car.color %>
+  year: <%= car.year %>
+  mileage: <%= car.mileage %></li>
+<% end %>
+</ul>
+
+<%= link_to "add new car", new_manufacturer_car_path(@manufacturer) %>

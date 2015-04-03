@@ -1,0 +1,29 @@
+<%- if @car.errors.present? -%>
+  <%- @car.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>enter the car information for your <%="#{@manufacturer.name}"%></h1>
+<%= form_for  [@manufacturer, @car] do |f| %>
+
+  <%= f.label :model, "model" %>
+  <%= f.text_area :model %>
+
+  <%= f.label :year, "year" %>
+  <%= f.number_field :year %>
+
+  <%= f.label :mileage, "mileage" %>
+  <%= f.number_field :mileage %>
+
+  <%= f.label :color, "color" %>
+  <%= f.text_area :color %>
+
+  <%= f.label :description, "description" %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "add car" %>
+<% end %>
+<%= button_to "cancel", manufacturer_path(@manufacturer), method: "get" %>
